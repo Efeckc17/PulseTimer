@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseTimer</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="timer-container">
+            <h1 class="title">PulseTimer</h1>
+            
+            <div class="timer-section">
+                <div class="timer-display">
+                    <div class="time-section">
+                        <span id="hours">00</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-section">
+                        <span id="minutes">00</span>
+                        <label>Minutes</label>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-section">
+                        <span id="seconds">00</span>
+                        <label>Seconds</label>
+                    </div>
+                </div>
+                <button id="toggleTimer" class="icon-button">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+
+            <div class="session-info">
+                <span id="sessionName" class="session-name">Work Time</span>
+                <span id="sessionProgress" class="session-progress"></span>
+            </div>
+
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start</button>
+                <button id="pauseBtn" class="btn" disabled>Pause</button>
+                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <button id="toggleSettings" class="settings-toggle">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+
+            <div class="settings-panel collapsed">
+                <h2>Timer Settings</h2>
+                
+                <div class="setting-group">
+                    <h3>Work Session</h3>
+                    <div class="setting-item">
+                        <label for="workName">Session Name:</label>
+                        <input type="text" id="workName" value="Work Time" class="text-input">
+                    </div>
+                    <div class="setting-item time-setting">
+                        <label>Total Work Duration:</label>
+                        <div class="time-inputs">
+                            <input type="number" id="workHours" min="0" max="23" value="2" class="time-input">
+                            <span>h</span>
+                            <input type="number" id="workMinutes" min="0" max="59" value="0" class="time-input">
+                            <span>m</span>
+                        </div>
+                        <small class="setting-help">Example: Set 2 hours for total work session</small>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h3>Break Settings</h3>
+                    <div class="setting-item">
+                        <label for="breakInterval">Take Break Every:</label>
+                        <div class="time-inputs">
+                            <input type="number" id="breakIntervalMinutes" min="1" max="59" value="25" class="time-input">
+                            <span>minutes of work</span>
+                        </div>
+                        <small class="setting-help">Example: Take a break every 25 minutes during work</small>
+                    </div>
+                    <div class="setting-item">
+                        <label for="breakDuration">Break Length:</label>
+                        <div class="time-inputs">
+                            <input type="number" id="breakMinutes" min="1" max="30" value="5" class="time-input" required>
+                            <span>minutes</span>
+                        </div>
+                        <small class="setting-help">Example: Each break will be 5 minutes long</small>
+                    </div>
+                    <div class="setting-item">
+                        <label for="breakNote">Break Note:</label>
+                        <textarea id="breakNote" class="text-area" placeholder="What would you like to do during breaks? (e.g., stretching, meditation, quick walk)"></textarea>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h3>Notifications</h3>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="soundNotification" checked>
+                            Sound Notifications
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="desktopNotification" checked>
+                            Desktop Notifications
+                        </label>
+                    </div>
+                </div>
+
+                <div class="session-history">
+                    <h3>Today's Sessions</h3>
+                    <div id="historyList" class="history-list">
+                    </div>
+                </div>
+
+                <div class="developer-info">
+                    <div class="github-links">
+                        <a href="https://github.com/Efeckc17" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            Developer: @Efeckc17
+                        </a>
+                        <a href="https://github.com/Efeckc17/PulseTimer" target="_blank" rel="noopener noreferrer" class="repo-link">
+                            <i class="fas fa-code-branch"></i>
+                            View Source
+                        </a>
+                    </div>
+                    <div class="license-info">
+                        Licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="breakOverlay" class="break-overlay hidden">
+        <div class="break-content">
+            <h2>Break Time!</h2>
+            <div class="break-timer">
+                <span id="breakTimeLeft">05:00</span>
+            </div>
+            <div class="break-note">
+                <p id="breakNoteDisplay">Your break note will appear here</p>
+            </div>
+            <button id="skipBreak" class="btn btn-secondary">Skip Break</button>
+        </div>
+    </div>
+
+    <div id="notificationDialog" class="notification-dialog hidden">
+        <div class="notification-content">
+            <h3>Enable Notifications</h3>
+            <p>Would you like to receive notifications when your work/break sessions end?</p>
+            <div class="notification-buttons">
+                <button id="enableNotifications" class="btn btn-primary">Enable</button>
+                <button id="skipNotifications" class="btn btn-secondary">Skip</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/notifications.js"></script>
+    <script type="module" src="js/timer.js"></script>
+    <script type="module" src="js/history.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html> 
