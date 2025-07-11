@@ -1,5 +1,6 @@
 import { DEFAULT_SETTINGS, STORAGE_KEYS } from './config.js';
 import { notificationManager } from './notifications.js';
+import { audioManager } from './audio.js';
 import { historyManager } from './history.js';
 
 class Timer {
@@ -155,6 +156,12 @@ class Timer {
             this.startBtn.disabled = true;
             this.pauseBtn.disabled = false;
             
+            notificationManager.notify(
+                'Work Session Started',
+                { body: 'Your work session has started' }
+            );
+            audioManager.playWorkStart();
+            
             this.workInterval = setInterval(() => {
                 if (this.workSeconds > 0) {
                     this.workSeconds--;
@@ -232,6 +239,7 @@ class Timer {
             'Break Time!',
             { body: this.breakNoteInput.value || 'Time for a short break!' }
         );
+        audioManager.playBreakStart();
         
         historyManager.addEntry({
             action: 'Started Break',
@@ -308,6 +316,7 @@ class Timer {
             'Session Complete!',
             { body: 'Great job! You\'ve completed your work session.' }
         );
+        audioManager.playSessionEnd();
         
         historyManager.addEntry({
             action: 'Completed',

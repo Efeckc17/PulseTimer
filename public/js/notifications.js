@@ -1,8 +1,8 @@
-import { NOTIFICATION_SOUNDS, STORAGE_KEYS } from './config.js';
+import { STORAGE_KEYS } from './config.js';
+import { audioManager } from './audio.js';
 
 class NotificationManager {
     constructor() {
-        this.soundEnabled = true;
         this.desktopEnabled = true;
         this.initialized = false;
     }
@@ -11,7 +11,6 @@ class NotificationManager {
         this.dialog = document.getElementById('notificationDialog');
         this.enableBtn = document.getElementById('enableNotifications');
         this.skipBtn = document.getElementById('skipNotifications');
-        this.soundCheckbox = document.getElementById('soundNotification');
         this.desktopCheckbox = document.getElementById('desktopNotification');
 
         this.bindEvents();
@@ -25,7 +24,6 @@ class NotificationManager {
     bindEvents() {
         this.enableBtn.addEventListener('click', () => this.requestPermission());
         this.skipBtn.addEventListener('click', () => this.skipNotifications());
-        this.soundCheckbox.addEventListener('change', () => this.updatePreferences());
         this.desktopCheckbox.addEventListener('change', () => this.updatePreferences());
     }
 
@@ -33,9 +31,7 @@ class NotificationManager {
         const preferences = JSON.parse(localStorage.getItem(STORAGE_KEYS.NOTIFICATION_PREFERENCE) || 'null');
         
         if (preferences) {
-            this.soundEnabled = preferences.sound;
             this.desktopEnabled = preferences.desktop;
-            this.soundCheckbox.checked = preferences.sound;
             this.desktopCheckbox.checked = preferences.desktop;
             this.initialized = true;
         } else {
@@ -44,13 +40,11 @@ class NotificationManager {
     }
 
     updatePreferences() {
-        this.soundEnabled = this.soundCheckbox.checked;
         this.desktopEnabled = this.desktopCheckbox.checked;
         
-        localStorage.setItem(STORAGE_KEYS.NOTIFICATION_PREFERENCE, JSON.stringify({
-            sound: this.soundEnabled,
-            desktop: this.desktopEnabled
-        }));
+        const preferences = JSON.parse(localStorage.getItem(STORAGE_KEYS.NOTIFICATION_PREFERENCE) || '{}');
+        preferences.desktop = this.desktopEnabled;
+        localStorage.setItem(STORAGE_KEYS.NOTIFICATION_PREFERENCE, JSON.stringify(preferences));
     }
 
     showPermissionDialog() {
@@ -87,10 +81,6 @@ class NotificationManager {
     }
 
     notify(title, options = {}) {
-        if (this.soundEnabled) {
-            this.playSound();
-        }
-
         if (this.desktopEnabled && 'Notification' in window && Notification.permission === 'granted') {
             new Notification(title, {
                 icon: '/favicon.ico',
@@ -98,17 +88,13 @@ class NotificationManager {
             });
         }
     }
-
-    playSound() {
-        const audio = new Audio(NOTIFICATION_SOUNDS.WORK_COMPLETE);
-        audio.play().catch(e => console.log('Audio playback failed:', e));
-    }
 }
 
 const notificationManager = new NotificationManager();
 
 document.addEventListener('DOMContentLoaded', () => {
     notificationManager.initialize();
+    audioManager.initialize();
 });
 
 export { notificationManager }; 
