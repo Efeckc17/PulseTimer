@@ -30,7 +30,11 @@ A modern, feature-rich work timer application designed to boost productivity thr
 - **Notification System**
   - Desktop notifications
   - Sound alerts
+    - Work session start sound
+    - Break time notification
+    - Session completion alert
   - Customizable notification preferences
+  - Browser permission management
 
 - **Session Tracking**
   - Daily session history
@@ -70,7 +74,8 @@ http://localhost:5678
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Backend**: Node.js, Express
 - **Security**: Helmet.js
-- **Notifications**: Web Notifications API
+- **Notifications**: Web Notifications API, Web Audio API
+- **Audio**: Custom sound effects for events
 - **Icons**: Font Awesome
 
 ## 📋 Usage Guide
@@ -88,7 +93,8 @@ http://localhost:5678
 3. **During Work**
    - Start/pause/reset timer as needed
    - Monitor progress
-   - Receive break notifications
+   - Receive break notifications with sound alerts
+   - Audio feedback for session events
    - Toggle timer display for privacy
 
 4. **Break Time**
