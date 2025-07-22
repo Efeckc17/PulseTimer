@@ -1,0 +1,165 @@
+@media (max-width: 768px) {
+    .timer-display {
+        gap: 0.8rem;
+        padding: 1.5rem;
+    }
+
+    .time-section span {
+        font-size: 3.5rem;
+    }
+
+    .separator {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0.8rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .timer-container {
+        padding: 1.2rem;
+        border-radius: 15px;
+    }
+
+    .timer-display {
+        gap: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .time-section span {
+        font-size: 2.5rem;
+    }
+
+    .time-section label {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    .separator {
+        font-size: 2.5rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .session-name {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .time-inputs {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .github-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .error-code {
+        font-size: 6rem;
+    }
+
+    .error-message {
+        font-size: 1.2rem;
+    }
+
+    .error-description {
+        font-size: 1rem;
+    }
+
+    .timer-animation {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .timer-container {
+        padding: 1rem;
+    }
+
+    .timer-display {
+        gap: 0.3rem;
+        padding: 0.8rem;
+        flex-wrap: nowrap;
+    }
+
+    .time-section span {
+        font-size: 2rem;
+    }
+
+    .separator {
+        font-size: 2rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .time-section label {
+        font-size: 0.6rem;
+        margin-top: 0.2rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .timer-display {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .time-section {
+        flex-direction: row;
+        gap: 0.3rem;
+        align-items: baseline;
+    }
+
+    .time-section span {
+        font-size: 1.8rem;
+    }
+
+    .time-section label {
+        font-size: 0.5rem;
+        margin-top: 0;
+        margin-left: 0.2rem;
+    }
+} 

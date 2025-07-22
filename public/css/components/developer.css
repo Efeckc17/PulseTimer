@@ -1,0 +1,48 @@
+.developer-info {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.github-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.developer-info a {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.developer-info a:hover {
+    opacity: 1;
+}
+
+.developer-info i {
+    margin-right: 0.5rem;
+}
+
+.repo-link {
+    color: var(--accent-color) !important;
+}
+
+.license-info {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+.license-info a {
+    text-decoration: underline;
+    font-size: 0.8rem;
+}
+
+.support-info {
+    margin: 1rem 0;
+} 

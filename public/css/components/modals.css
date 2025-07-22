@@ -1,0 +1,117 @@
+.notification-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.notification-dialog.hidden {
+    display: none;
+}
+
+.notification-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.notification-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.notification-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.notification-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.permission-info {
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+    text-align: left;
+}
+
+.permission-info li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+}
+
+.permission-info i {
+    color: #4CAF50;
+}
+
+.break-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(8px);
+}
+
+.break-overlay.hidden {
+    display: none;
+}
+
+.break-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.break-content h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.break-timer {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    font-family: monospace;
+    color: var(--accent-color);
+}
+
+.break-note {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-style: italic;
+}
+
+.break-note p {
+    margin: 0;
+    line-height: 1.5;
+} 

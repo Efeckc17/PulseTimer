@@ -1,0 +1,116 @@
+.settings-panel {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: left;
+    max-height: 2000px;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.settings-panel.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.settings-panel.collapsed .setting-group,
+.settings-panel.collapsed .session-history {
+    margin: 0;
+    padding: 0;
+}
+
+.settings-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.setting-group {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.setting-group h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.setting-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.text-input {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.time-setting {
+    display: flex;
+    align-items: center;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.time-input {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: white;
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.text-area {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.8rem;
+    color: white;
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.text-area:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.setting-help {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.3rem;
+    font-style: italic;
+} 

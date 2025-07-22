@@ -1,0 +1,134 @@
+.timer-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.timer-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.timer-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.timer-display.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.timer-display.masked .time-section span {
+    font-family: monospace;
+    content: "**";
+    letter-spacing: 2px;
+}
+
+.timer-display.masked .time-section span::before {
+    content: "**";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.time-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.time-section span {
+    font-size: 4.5rem;
+    font-weight: 300;
+    background: linear-gradient(45deg, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.time-section span.pulse {
+    animation: numberPulse 0.3s ease-out;
+}
+
+.time-section label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.separator {
+    font-size: 4rem;
+    font-weight: 300;
+    animation: separatorPulse 1s infinite;
+    opacity: 0.5;
+}
+
+.session-info {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.session-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.session-progress {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-button:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+} 
