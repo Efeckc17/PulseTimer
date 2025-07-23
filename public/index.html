@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PulseTimer</title>
+    <title>PulseTimer - Smart Work Timer with Break Management</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="PulseTimer - Smart Work Timer with Break Management">
+    <meta name="description" content="PulseTimer helps you maintain productivity with customizable work sessions, smart break reminders, and session tracking. Perfect for Pomodoro technique and focused work periods.">
+    <meta name="keywords" content="work timer, pomodoro timer, productivity tool, break reminder, focus timer, time management, work session tracker, productivity app, pomodoro technique, work break timer, study timer, concentration tool, task timer, work-life balance, time tracking, productivity management, break management, work focus app, desktop timer, web timer">
+    <meta name="author" content="toxi360">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timer.toxi360.org/">
+    <meta property="og:title" content="PulseTimer - Smart Work Timer with Break Management">
+    <meta property="og:description" content="PulseTimer helps you maintain productivity with customizable work sessions, smart break reminders, and session tracking. Perfect for Pomodoro technique and focused work periods.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://timer.toxi360.org/">
+    <meta property="twitter:title" content="PulseTimer - Smart Work Timer with Break Management">
+    <meta property="twitter:description" content="PulseTimer helps you maintain productivity with customizable work sessions, smart break reminders, and session tracking. Perfect for Pomodoro technique and focused work periods.">
+    
+    <!-- App Meta Tags -->
+    <meta name="application-name" content="PulseTimer">
+    <meta name="theme-color" content="#ffffff">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     
-    <!-- Android Chrome Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    
-    <!-- Theme Color for Mobile -->
-    <meta name="theme-color" content="#ffffff">
-    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -171,16 +186,53 @@
     </div>
 
     <div id="notificationDialog" class="notification-dialog hidden">
+        <div class="notification-overlay"></div>
         <div class="notification-content">
-            <h3>Enable Notifications & Sound</h3>
-            <p>Would you like to receive notifications and sound alerts when your work/break sessions end?</p>
-            <ul class="permission-info">
-                <li><i class="fas fa-bell"></i> Desktop notifications for session updates</li>
-                <li><i class="fas fa-volume-up"></i> Sound alerts for better time management</li>
-            </ul>
-            <div class="notification-buttons">
-                <button id="enableNotifications" class="btn btn-primary">Enable</button>
-                <button id="skipNotifications" class="btn btn-secondary">Skip</button>
+            <div class="notification-header">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Enhance Your Focus Experience</h3>
+                <p class="notification-subtitle">Enable smart notifications for better productivity</p>
+            </div>
+
+            <div class="notification-body">
+                <div class="permission-cards">
+                    <div class="permission-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Desktop Notifications</h4>
+                            <p>Get notified when work sessions and breaks end</p>
+                        </div>
+                    </div>
+                    
+                    <div class="permission-card">
+                        <div class="card-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Sound Alerts</h4>
+                            <p>Hear gentle audio cues for session transitions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-note">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Your privacy is protected. No data is collected or shared.</span>
+                </div>
+            </div>
+
+            <div class="notification-actions">
+                <button id="enableNotifications" class="enable-btn">
+                    <i class="fas fa-check"></i>
+                    <span>Enable Notifications</span>
+                </button>
+                <button id="skipNotifications" class="skip-btn">
+                    <span>Maybe Later</span>
+                </button>
             </div>
         </div>
     </div>
@@ -189,6 +241,11 @@
     <script type="module" src="js/notifications.js"></script>
     <script type="module" src="js/timer.js"></script>
     <script type="module" src="js/history.js"></script>
+    <script type="module" src="js/ai/config.js"></script>
+    <script type="module" src="js/ai/service.js"></script>
+    <script type="module" src="js/ai/goalAnalyzer.js"></script>
+    <script type="module" src="js/ai/presetManager.js"></script>
+    <script type="module" src="js/ai/ui.js"></script>
     <script type="module" src="js/app.js"></script>
 </body>
 </html> 

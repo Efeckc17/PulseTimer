@@ -1,23 +1,23 @@
 {
-    "name": "pulsetimer",
-    "version": "1.0.0",
-    "description": "A work timer application with focus on productivity pulses",
-    "main": "server.js",
-    "scripts": {
+  "name": "pulsetimer",
+  "version": "2.0.0",
+  "description": "AI-powered work timer with intelligent recommendations and modern design for enhanced productivity",
+  "main": "server.js",
+  "scripts": {
       "start": "node server.js"
-    },
-    "dependencies": {
+  },
+  "dependencies": {
+      "dotenv": "^17.2.0",
       "express": "^4.21.2",
       "helmet": "^7.2.0"
-    },
-    "license": "Apache-2.0",
-    "repository": {
+  },
+  "license": "Apache-2.0",
+  "repository": {
       "type": "git",
       "url": "https://github.com/Efeckc17/PulseTimer"
-    },
-    "author": {
+  },
+  "author": {
       "name": "toxi360",
       "url": "https://github.com/Efeckc17"
-    }
+  }
 }
-  

@@ -1,6 +1,9 @@
 import { timer } from './timer.js';
 import { notificationManager } from './notifications.js';
 import { historyManager } from './history.js';
+import { aiUI } from './ai/ui.js';
+import { goalAnalyzer } from './ai/goalAnalyzer.js';
+import { presetManager } from './ai/presetManager.js';
 
 // UI
 const toggleTimerBtn = document.getElementById('toggleTimer');
@@ -53,5 +56,10 @@ timer.updateDisplay = function() {
 window.pulseTimer = {
     timer,
     notificationManager,
-    historyManager
+    historyManager,
+    ai: {
+        ui: aiUI,
+        goalAnalyzer,
+        presetManager
+    }
 }; 
